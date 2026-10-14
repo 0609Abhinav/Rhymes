@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Nursery Rhyme Video AI Studio &bull; Local Mistral & Animation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #131b2e;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #f59e0b;
+      --accent-glow: rgba(245, 158, 11, 0.25);
+      --primary: #6366f1;
+      --success: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e1b4b 0%, #090d16 60%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .container { max-width: 1300px; margin: 0 auto; }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 30px;
+    }
+    .logo-area { display: flex; align-items: center; gap: 14px; }
+    .logo-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: linear-gradient(135deg, #f59e0b, #ec4899);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; color: white; box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .logo-title h1 { font-size: 24px; font-weight: 800; }
+    .logo-title p { font-size: 13px; color: var(--text-muted); }
+    .status-badges { display: flex; gap: 10px; align-items: center; }
+    .status-pill {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+
+    /* Layout Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+    }
+    @media (max-width: 1000px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* Card styling */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: #fef08a;
+    }
+
+    /* Prompt Input */
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 14px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      margin-bottom: 14px;
+    }
+    textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
+
+    .presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .chip:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--accent);
+      color: #fef08a;
+    }
+
+    /* Form Controls */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-size: 14px;
+    }
+    select:focus, input:focus { outline: none; border-color: var(--accent); }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4); }
+    .btn-accent {
+      background: linear-gradient(135deg, #f59e0b, #ec4899);
+      color: white;
+    }
+    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4); }
+    .btn-git {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text);
+    }
+    .btn-git:hover { background: rgba(255, 255, 255, 0.14); }
+
+    /* Video Player */
+    .player-container {
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .video-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #0b1120;
+      border-top: 1px solid var(--card-border);
+      font-size: 13px;
+    }
+
+    /* Progress bar */
+    .progress-box {
+      margin-top: 14px;
+      background: #0b1120;
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px solid var(--card-border);
+      display: none;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #f59e0b, #ec4899, #6366f1);
+      transition: width 0.3s ease;
+    }
+    .progress-status {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Scene Carousel / List */
+    .scenes-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .scene-item {
+      background: #0b1120;
+      border-radius: 10px;
+      padding: 12px;
+      border-left: 4px solid var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-left-width: 4px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .scene-thumb {
+      width: 100px;
+      height: 60px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #1e293b;
+    }
+    .scene-meta { flex-grow: 1; }
+    .scene-meta h4 { font-size: 13px; color: #fef08a; margin-bottom: 2px; }
+    .scene-meta p { font-size: 12px; color: var(--text-muted); line-height: 1.3; }
+
+    /* Git Timeline */
+    .git-commits {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+    .git-commit {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 8px 10px;
+      background: #0b1120;
+      border-radius: 6px;
+      border-left: 3px solid var(--primary);
+    }
+    .commit-hash { font-family: monospace; color: var(--accent); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <div class="logo-icon"><i class="fa-solid fa-star"></i></div>
+        <div class="logo-title">
+          <h1>3D Nursery Rhyme Video AI Studio</h1>
+          <p>Local Mistral 7B &bull; Neural Lullaby Vocals &bull; Walking & Motion Animation &bull; Git Versioning</p>
+        </div>
+      </div>
+      <div class="status-badges">
+        <div class="status-pill"><span class="dot"></span> Local Mistral (Ollama)</div>
+        <div class="status-pill"><i class="fa-solid fa-code-commit"></i> Git Enabled</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Left Column: Prompt & Video Generation Controls -->
+      <div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Prompt & AI Storyboard Generator</div>
+          <label style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 6px;">ENTER NURSERY RHYME OR VIDEO PROMPT:</label>
+          <textarea id="promptInput" placeholder="Enter characters, lyrics, or scene ideas...">Cute 3D animated toddler nursery rhyme, Twinkle Twinkle Little Star, 10 scenes of 8 seconds each. Soft pastel colours, rounded glossy toy-like shapes, warm glowing light, big sparkly eyes, smooth gentle motion. Characters: Pip the cream bunny with floppy ears in sky-blue star pyjamas, Twinkle the smiling yellow star, Fox the friendly orange cub with lantern. Female lullaby vocal singing the rhyme, music box, glockenspiel, harp, 90 BPM.</textarea>
+          
+          <div class="presets">
+            <span style="font-size: 12px; color: var(--text-muted); align-self: center;">Quick Presets:</span>
+            <button class="chip" onclick="loadPreset('twinkle')">Twinkle Twinkle (Bunny & Fox)</button>
+            <button class="chip" onclick="loadPreset('macdonald')">Old MacDonald Farm</button>
+            <button class="chip" onclick="loadPreset('humpty')">Humpty Dumpty Kingdom</button>
+            <button class="chip" onclick="loadPreset('spider')">Itsy Bitsy Spider</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Number of Scenes</label>
+              <select id="sceneCount">
+                <option value="10" selected>10 Scenes (80s Total)</option>
+                <option value="5">5 Scenes (40s Total)</option>
+                <option value="3">3 Scenes (24s Total)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Scene Duration</label>
+              <select id="sceneDuration">
+                <option value="8" selected>8 Seconds per scene</option>
+                <option value="5">5 Seconds per scene</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Singing Voice (Neural Vocal)</label>
+              <select id="voiceSelect">
+                <option value="en-US-JennyNeural" selected>Jenny (Soft Bedtime Female Lullaby)</option>
+                <option value="en-US-AnaNeural">Ana (Sweet Toddler/Child Voice)</option>
+                <option value="en-GB-SoniaNeural">Sonia (British Classical Lullaby)</option>
+                <option value="en-US-AriaNeural">Aria (Warm Storyteller)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Music Tempo & Style</label>
+              <select id="bpmSelect">
+                <option value="90" selected>90 BPM (Gentle Lullaby & Music Box)</option>
+                <option value="80">80 BPM (Slow Dreamy Bedtime)</option>
+                <option value="100">100 BPM (Cheerful Toddler Rhythm)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn-primary" onclick="generateStoryboard()"><i class="fa-solid fa-brain"></i> 1. Plan with Mistral AI</button>
+            <button class="btn btn-accent" onclick="renderVideo()"><i class="fa-solid fa-film"></i> 2. Render Full Animated Video</button>
+            <button class="btn btn-git" onclick="commitGit()"><i class="fa-solid fa-code-branch"></i> Git Commit Checkpoint</button>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="progress-box" id="progressBox">
+            <div class="progress-status">
+              <span id="progressText">Initializing rendering engine...</span>
+              <span id="progressPct">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Git Version History Card -->
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-timeline"></i> Git Version Control Tracking</div>
+          <div class="git-commits" id="gitCommitsList">
+            <div class="git-commit"><span class="commit-hash">Loading git commits...</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Video Player & Storyboard Inspector -->
+      <div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-circle-play"></i> Rendered Master Video Output</div>
+          <div class="player-container">
+            <video id="videoPlayer" controls preload="metadata">
+              <source src="/api/video" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="video-info-bar">
+              <div>
+                <strong>Twinkle_Twinkle_Little_Star_3D.mp4</strong>
+                <div style="font-size: 11px; color: var(--text-muted);">80s &bull; H.264 &bull; AAC Neural Vocals &bull; 24 FPS</div>
+              </div>
+              <a href="/api/video" download="Twinkle_Twinkle_Little_Star_3D.mp4" class="btn btn-git" style="padding: 6px 12px; font-size: 12px;">
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Storyboard Scene List -->
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-clapperboard"></i> 10-Scene Storyboard & Walking Actions</div>
+          <div class="scenes-scroll" id="scenesList">
+            <!-- Scene Items dynamically loaded -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const presets = {
+      twinkle: "Cute 3D animated toddler nursery rhyme, Twinkle Twinkle Little Star, 10 scenes of 8 seconds each. Soft pastel colours, rounded glossy toy-like shapes, warm glowing light, big sparkly eyes, smooth gentle motion. Characters: Pip the cream bunny with floppy ears in sky-blue star pyjamas, Twinkle the smiling yellow star, Fox the friendly orange cub with lantern. Female lullaby vocal singing the rhyme, music box, glockenspiel, harp, 90 BPM.",
+      macdonald: "Cute 3D animated toddler nursery rhyme, Old MacDonald Had a Farm, 5 scenes of 8 seconds each. Chubby 3D animals: Daisy the spotted cow, Barnaby the fluffy sheep, Pippin the yellow duckling. Soft pastel farmyard, sunny gentle morning, happy walking animals.",
+      humpty: "Cute 3D animated fairytale, Humpty Dumpty sat on a wall, 5 scenes of 8 seconds each. Soft rounded egg character in royal velvet jacket, gentle pastel castle garden, smiling sun, no cracking/scary elements, gentle happy rescue by fluffy royal ponies.",
+      spider: "Cute 3D animated nursery rhyme, The Itsy Bitsy Spider, 5 scenes of 8 seconds each. Tiny friendly purple baby spider with big sparkly eyes climbing a smooth rounded water spout, smiling gentle rain cloud, warm golden sun drying up the rain."
+    };
+
+    function loadPreset(key) {
+      if (presets[key]) {
+        document.getElementById('promptInput').value = presets[key];
+      }
+    }
+
+    async function loadGitHistory() {
+      try {
+        const res = await fetch('/api/git-history');
+        const data = await res.json();
+        const container = document.getElementById('gitCommitsList');
+        if (data.commits && data.commits.length > 0) {
+          container.innerHTML = data.commits.map(c => `
+            <div class="git-commit">
+              <div>
+                <span class="commit-hash">${c.hash}</span>
+                <span style="margin-left: 8px;">${c.message}</span>
+              </div>
+              <div style="color: var(--text-muted); font-size: 11px;">${c.date}</div>
+            </div>
+          `).join('');
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function loadStoryboard() {
+      try {
+        const res = await fetch('/api/storyboard');
+        const data = await res.json();
+        const list = document.getElementById('scenesList');
+        const scenes = data.scenes || [];
+        const thumbs = [
+          "/static/keyframes/scene1_windowsill_1791827737722.jpg",
+          "/static/keyframes/scene2_cloud_stars_1791828059892.jpg",
+          "/static/keyframes/scene3_sunset_1791828086139.jpg",
+          "/static/keyframes/scene4_night_dance_1791828113207.jpg",
+          "/static/keyframes/scene5_fox_lantern_1791827763223.jpg",
+          "/static/keyframes/scene6_fork_path_1791828162285.jpg",
+          "/static/keyframes/scene7_cozy_bed_1791828189796.jpg",
+          "/static/keyframes/scene8_sunrise_yawn_1791828211026.jpg",
+          "/static/keyframes/scene9_starry_hill_1791828236515.jpg",
+          "/static/keyframes/scene10_cloud_wave_1791827785549.jpg"
+        ];
+
+        list.innerHTML = scenes.map((s, idx) => `
+          <div class="scene-item">
+            <img class="scene-thumb" src="${thumbs[idx % thumbs.length]}" alt="Scene ${s.scene_number}">
+            <div class="scene-meta">
+              <h4>Scene ${s.scene_number}: &ldquo;${s.lyric}&rdquo;</h4>
+              <p>${s.action}</p>
+              <div style="font-size: 11px; color: var(--accent); margin-top: 4px;">
+                <i class="fa-solid fa-person-walking"></i> Motion: ${s.motion_type || s.walking_character || 'Gentle Animation'} &bull; Duration: ${s.duration}s
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function generateStoryboard() {
+      const prompt = document.getElementById('promptInput').value;
+      const count = parseInt(document.getElementById('sceneCount').value);
+      const dur = parseInt(document.getElementById('sceneDuration').value);
+      showProgress("Consulting local Ollama Mistral model...", 30);
+
+      try {
+        const res = await fetch('/api/generate-storyboard', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({prompt, num_scenes: count, scene_dur: dur})
+        });
+        const data = await res.json();
+        showProgress("Mistral storyboard ready!", 100);
+        setTimeout(hideProgress, 1200);
+        loadStoryboard();
+        loadGitHistory();
+      } catch (e) {
+        alert("Error calling Mistral model: " + e);
+        hideProgress();
+      }
+    }
+
+    async function renderVideo() {
+      const voice = document.getElementById('voiceSelect').value;
+      const bpm = parseInt(document.getElementById('bpmSelect').value);
+      showProgress("Starting animated render pipeline...", 5);
+
+      try {
+        const res = await fetch('/api/generate-video', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({voice, bpm})
+        });
+        pollProgress();
+      } catch (e) {
+        alert("Render error: " + e);
+        hideProgress();
+      }
+    }
+
+    function showProgress(text, pct) {
+      const box = document.getElementById('progressBox');
+      box.style.display = 'block';
+      document.getElementById('progressText').innerText = text;
+      document.getElementById('progressPct').innerText = pct + '%';
+      document.getElementById('progressFill').style.width = pct + '%';
+    }
+
+    function hideProgress() {
+      document.getElementById('progressBox').style.display = 'none';
+    }
+
+    function pollProgress() {
+      const interval = setInterval(async () => {
+        try {
+          const res = await fetch('/api/progress');
+          const data = await res.json();
+          showProgress(data.status, data.percent);
+
+          if (data.percent >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+              hideProgress();
+              const player = document.getElementById('videoPlayer');
+              player.src = '/api/video?t=' + Date.now();
+              player.load();
+              player.play();
+              loadGitHistory();
+            }, 1000);
+          }
+        } catch (e) {
+          clearInterval(interval);
+        }
+      }, 1500);
+    }
+
+    async function commitGit() {
+      const note = prompt("Enter Git commit message:", "Updated nursery rhyme video with neural vocals and walking animation");
+      if (!note) return;
+      try {
+        const res = await fetch('/api/git-commit', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({message: note})
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert("Git commit recorded successfully!");
+          loadGitHistory();
+        } else {
+          alert("Nothing to commit or already up to date.");
+        }
+      } catch (e) {
+        alert("Git error: " + e);
+      }
+    }
+
+    window.onload = () => {
+      loadGitHistory();
+      loadStoryboard();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "title": "Twinkle Twinkle Little Star - 3D Toddler Nursery Rhyme",
+  "reference_video": "gemini_generated_video_ad3e78ab.mp4 (visual style reference only; silent, 41 seconds)",
+  "clip_specs": {
+    "count": 10,
+    "duration_seconds": 8,
+    "aspect_ratio": "16:9",
+    "frame_rate": 24,
+    "output_folder": "animated_scenes",
+    "filenames": [
+      "scene_01.mp4",
+      "scene_02.mp4",
+      "scene_03.mp4",
+      "scene_04.mp4",
+      "scene_05.mp4",
+      "scene_06.mp4",
+      "scene_07.mp4",
+      "scene_08.mp4",
+      "scene_09.mp4",
+      "scene_10.mp4"
+    ],
+    "generation_note": "Generate each clip from its matching keyframe image as the image-to-video reference. Use the same global style text and character references for every clip."
+  },
+  "shared_style_and_negative_prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery.",
+  "scenes": [
+    {
+      "filename": "scene_01.mp4",
+      "lyric_timing": "00:00 - 00:08",
+      "lyric": "Twinkle, twinkle, little star, how I wonder what you are",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Slow gentle 3D animation: Cream bunny baby in blue pyjamas rests chubby paws on windowsill, tilts head slowly with wonder, blinking big sparkly eyes. Soft golden star Twinkle twinkles gently in the dusk sky. A whimsical glowing question-mark dust particle floats slowly up and dissolves. Smooth gentle breathing and sway, soft lighting, 24fps. Camera: Slow smooth push-in toward Pip on windowsill, gentle upward pan toward the sky."
+    },
+    {
+      "filename": "scene_02.mp4",
+      "lyric_timing": "00:08 - 00:16",
+      "lyric": "Up above the world so high, like a diamond in the sky",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Gentle drifting motion: Cream baby bunny sits softly atop a pillowy cloud floating gently above sleepy pastel hill town. Star Twinkle glides into frame with a warm glowing light streak, smiling happily. Diamond-faceted soft stars pulse slowly in background. Ultra-smooth camera tracking, dreamy floating movement. Camera: Smooth crane-up and gentle forward drift through fluffy clouds."
+    },
+    {
+      "filename": "scene_03.mp4",
+      "lyric_timing": "00:16 - 00:24",
+      "lyric": "When the blazing sun is gone",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Warm sunset animation: Cute stylized round cartoon sun with rosy cheeks sinks slowly behind rounded hills, waving goodbye with gentle ray hands. Sky color gradients shift smoothly from golden honey to pastel purple. Cute cream bunny Pip waves chubby arm goodbye. Gentle breeze in round toy flowers. Camera: Slow panoramic pan across the sunset hills following the setting sun."
+    },
+    {
+      "filename": "scene_04.mp4",
+      "lyric_timing": "00:24 - 00:32",
+      "lyric": "Then you show your little light, twinkle all the night",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Playful night meadow animation: Stars ignite rhythmically in velvet sky with soft glowing bursts. Bright star Twinkle pulses with warm golden light. Baby bunny Pip happily steps side-to-side, swaying chubby ears playfully. Glowing yellow fireflies drift peacefully around. Smooth 3D toy motion. Camera: Medium shot orbiting slowly around Pip, tilting up to Twinkle's radiant glow."
+    },
+    {
+      "filename": "scene_05.mp4",
+      "lyric_timing": "00:32 - 00:40",
+      "lyric": "Then the traveller in the dark thanks you for your tiny spark",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Gentle forest walk animation: Cute little orange fox cub in navy tunic carries a glowing wooden lantern along a pebble path, bushy tail swaying gently. Smiling star Twinkle beams a steady radiant sunbeam of starlight down through tree leaves. Fox stops, smiles upward with sparkling eyes, and nods a grateful bow. Soft ambient night atmosphere. Camera: Slow tracking side profile moving with Fox, then tilting up to reveal Twinkle's ray."
+    },
+    {
+      "filename": "scene_06.mp4",
+      "lyric_timing": "00:40 - 00:48",
+      "lyric": "He could not see which way to go if you did not twinkle so",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Cute discovery animation: Orange fox cub stands at wooden path fork, looks left and right quizzically. Star Twinkle winks from above and drops a cascade of glittering golden star dust along the right path. Fox smiles brightly, tail wags, and scampers happily forward along the illuminated trail. Smooth fluid motion. Camera: Slight high-angle shot pulling back slowly, revealing the fork and the sparkling illuminated trail."
+    },
+    {
+      "filename": "scene_07.mp4",
+      "lyric_timing": "00:48 - 00:56",
+      "lyric": "In the dark blue sky you keep, and often through my curtains peep",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Sleepy cozy nursery animation: Cream baby bunny Pip snuggled in a soft bed under pastel blankets, blinking sleepily. Golden star Twinkle gently hovers at window curtain edge, leaning forward with a friendly wink. Pip smiles warmly, pulling the blanket snug. Soft glowing warm amber nightlight ambiance, soothing gentle pace. Camera: Gentle slow dolly-in towards Pip's cozy bed, framing Twinkle peeking through the curtain fold."
+    },
+    {
+      "filename": "scene_08.mp4",
+      "lyric_timing": "00:56 - 01:04",
+      "lyric": "You never shut your eye till the sun is in the sky",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Gentle daybreak animation: Smiling star Twinkle hovers peacefully as sky gradually transitions from dark midnight blue to soft blush pink and morning peach. Crescent moon sinks slowly. Twinkle stretches arms, gives a cute sleepy yawn with closed happy eyes, and softly fades into the warm morning light. Camera: Slow wide time-lapse style gentle pan across the sky from west to east."
+    },
+    {
+      "filename": "scene_09.mp4",
+      "lyric_timing": "01:04 - 01:12",
+      "lyric": "'Tis your bright and tiny spark lights the traveller in the dark",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Heartwarming friendship animation: Baby bunny Pip and orange fox cub stand together on soft hill under starry sky, smiling and holding hands. Star Twinkle floats down between them, surrounding them in a cocoon of warm radiant golden light. Pip holds a miniature glowing pocket star. Gentle wind rustles fur, heartwarming wholesome motion. Camera: Circular camera track rotating slowly around the three friends on the hill."
+    },
+    {
+      "filename": "scene_10.mp4",
+      "lyric_timing": "01:12 - 01:20",
+      "lyric": "Though I know not what you are, twinkle, twinkle, little star",
+      "prompt": "Create an 8-second 16:9 high-quality 3D animated nursery-rhyme shot, 24 fps. Match the supplied reference video: cozy pastel bedtime palette, soft plush/clay characters, warm diffuse light, expressive large eyes, gentle continuous character movement, polished cinematic children's animation. Keep Pip as the same cream baby bunny in blue star pajamas and Twinkle as the same smiling glowing yellow star in every shot; preserve character designs and proportions. Smooth natural movement, clear readable action, slow stable camera, no cuts within the shot. No speech, no singing, no text, no subtitles, no logos, no watermark, no jitter, no morphing, no extra limbs, no harsh lighting, no scary imagery. Scene action: Grand finale animation: Cream bunny Pip and orange fox cub sitting on fluffy cloud wave goodbye happily with big joyous smiles. Star Twinkle beams with rosy cheeks in between them. Camera pulls slowly and smoothly backwards into the expansive twinkling pastel cosmos as tiny sparkling diamond stars twinkle gently. Soft gentle fade to peaceful slumber. Camera: Grand slow cinematic pull-back (dolly-out) and slow fade out to soft warm twilight."
+    }
+  ]
+}

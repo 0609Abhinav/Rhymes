@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+temp_*.mp4
+temp_*.wav
+*.tmp
+.venv*
+.models/
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/

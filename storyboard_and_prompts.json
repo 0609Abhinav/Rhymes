@@ -1,0 +1,102 @@
+{
+  "title": "Twinkle Twinkle Little Star (3D Animated Nursery Rhyme)",
+  "prompt": "Cute 3D animated toddler nursery rhyme, Twinkle Twinkle Little Star, 10 scenes of 8 seconds each. Soft pastel colours, rounded glossy toy-like shapes, warm glowing light, big sparkly eyes, smooth gentle motion. Characters: Pip the cream bunny with floppy ears in sky-blue star pyjamas, Twinkle the smiling yellow star, Fox the friendly orange cub with lantern. Female lullaby vocal singing the rhyme, music box, glockenspiel, harp, 90 BPM.",
+  "bpm": 90,
+  "characters": {
+    "Pip": "Cream baby bunny with floppy ears and sky-blue star pyjamas",
+    "Twinkle": "Smiling golden star with rosy cheeks and warm glow",
+    "Fox": "Friendly orange cub with bushy tail and wooden lantern"
+  },
+  "scenes": [
+    {
+      "scene_number": 1,
+      "duration": 8,
+      "lyric": "Twinkle, twinkle, little star, how I wonder what you are.",
+      "action": "Pip sits on windowsill gazing at Twinkle, head tilting with floating sparkle",
+      "walking_character": "Pip",
+      "motion_type": "bobbing",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 2,
+      "duration": 8,
+      "lyric": "Up above the world so high, like a diamond in the sky.",
+      "action": "Pip floats happily on fluffy cloud through glittering diamond stars",
+      "walking_character": "Pip",
+      "motion_type": "floating",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 3,
+      "duration": 8,
+      "lyric": "When the sun has gone away, moon and stars come out to play.",
+      "action": "Smiling sun waves goodbye setting behind green hills as Pip waves back",
+      "walking_character": "Pip",
+      "motion_type": "waving",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 4,
+      "duration": 8,
+      "lyric": "Then you shine your little light, twinkle softly through the night.",
+      "action": "Pip does a joyful toddler sway dance among glowing flowers and fireflies",
+      "walking_character": "Pip",
+      "motion_type": "dancing",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 5,
+      "duration": 8,
+      "lyric": "Then the traveller in the dark, thanks you for your tiny spark.",
+      "action": "Fox walks along night forest path swinging his warm lantern, smiling up at Twinkle",
+      "walking_character": "Fox",
+      "motion_type": "walking_right",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 6,
+      "duration": 8,
+      "lyric": "He could not see which way to go, if you did not twinkle so.",
+      "action": "Fox trots curiously down the sparkling stardust path illuminated by Twinkle",
+      "walking_character": "Fox",
+      "motion_type": "walking_right",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 7,
+      "duration": 8,
+      "lyric": "In the dark blue sky you keep, and often through my curtains peep.",
+      "action": "Pip snuggles in cozy bed as Twinkle peeks through window curtains and winks",
+      "walking_character": "Pip",
+      "motion_type": "sleeping",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 8,
+      "duration": 8,
+      "lyric": "For you never shut your eye, till the sun is in the sky.",
+      "action": "Twinkle watches sleepy village as sunrise arrives, giving a sleepy cute yawn",
+      "walking_character": "Twinkle",
+      "motion_type": "floating",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 9,
+      "duration": 8,
+      "lyric": "As your bright and tiny spark, lights the traveller in the dark.",
+      "action": "Fox and Pip walk up the starry hill together to meet under Twinkle's light",
+      "walking_character": "Fox_and_Pip",
+      "motion_type": "walking_together",
+      "camera": "Slow cinematic move"
+    },
+    {
+      "scene_number": 10,
+      "duration": 8,
+      "lyric": "Though I know not what you are, twinkle, twinkle, little star.",
+      "action": "Pip, Fox and Twinkle wave goodbye together from cloud pulling back to cosmos",
+      "walking_character": "All",
+      "motion_type": "waving",
+      "camera": "Slow cinematic move"
+    }
+  ]
+}
